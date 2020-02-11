@@ -2,6 +2,12 @@
 
 @section('content')
 
-<h1>Hello New User and welcome to our website.</h1>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <p> خوش آمدید{{$user->name}}</p>
+        </div>
+    </div>
+</div>
 
 @endsection

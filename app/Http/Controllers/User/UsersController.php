@@ -32,82 +32,83 @@ class UsersController extends Controller
         return view('auth.register');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string',
-            'username' => 'required|string',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|confirmed|min:8',
-            'age' => 'nullable|numeric',
-            'gender_id' => 'required|numeric'
-        ]);
+    // /**
+    //  * Store a newly created resource in storage.
+    //  *
+    //  * @param  \Illuminate\Http\Request  $request
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'name' => 'required|string',
+    //         'username' => 'required|string',
+    //         'email' => 'required|email|unique:users,email',
+    //         'password' => 'required|confirmed|min:8',
+    //         'age' => 'nullable|numeric',
+    //         'gender_id' => 'required|numeric'
+    //     ]);
 
-        $newUser = new User();
+    //     $newUser = new User();
 
-        $newUser->name = $request->post('name');
-        $newUser->username = $request->post('username');
-        $newUser->email = $request->post('email');
-        $newUser->password = Hash::make($request->post('password'));
-        $newUser->age = $request->post('age');
-        $newUser->gender_id = $request->post('gender_id');
-        $newUser->save();
+    //     $newUser->name = $request->post('name');
+    //     $newUser->username = $request->post('username');
+    //     $newUser->email = $request->post('email');
+    //     $newUser->password = Hash::make($request->post('password'));
+    //     $newUser->age = $request->post('age');
+    //     $newUser->gender_id = $request->post('gender_id');
+    //     $newUser->save();
 
-        //set default role for this user as Generic user
-        $userRole = Role::where('name', 'User')->first();
-        $newUser->roles()->attach($userRole);
+    //     //set default role for this user as Generic user
+    //     $userRole = Role::where('name', 'User')->first();
+    //     $newUser->roles()->attach($userRole);
 
-        return redirect('/')->with('successRegister', 'کاربر گرامی، ثبت نام شما با موفقیت انجام شد.');
-    }
+    //     return redirect('/')->with('successRegister', 'کاربر گرامی، ثبت نام شما با موفقیت انجام شد.');
+    // }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // /**
+    //  * Display the specified resource.
+    //  *
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return view('user.profile')->with('user', $user);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+    // /**
+    //  * Show the form for editing the specified resource.
+    //  *
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function edit($id)
+    // {
+    //     //
+    // }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    // /**
+    //  * Update the specified resource in storage.
+    //  *
+    //  * @param  \Illuminate\Http\Request  $request
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function update(Request $request, $id)
+    // {
+    //     //
+    // }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    // /**
+    //  * Remove the specified resource from storage.
+    //  *
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function destroy($id)
+    // {
+    //     //
+    // }
 }

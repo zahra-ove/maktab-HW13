@@ -148,9 +148,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //========= Route for admin and admin panle ===========
-Route::get('/admin', 'Admin\AdminsController@index')->name('admin');
-
-Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
+// Route::get('/admin', 'Admin\AdminsController@index')->name('admin');
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('CheckRole')->group(function () {
+    Route::get('', 'AdminsController@index')->name('mainPage');
     Route::resource('users', 'UsersController');
     Route::resource('products', 'ProductsController');
     Route::resource('categories', 'CategoriesController');
@@ -159,4 +159,5 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
 
 //========= Route for User =================
-Route::resource('users', 'User\UsersController');
+Route::resource('users', 'User\UsersController')->except(['store', 'destroy', 'edit', 'update']);
+
