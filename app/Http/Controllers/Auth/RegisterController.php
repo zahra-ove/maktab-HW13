@@ -31,7 +31,7 @@ class RegisterController extends Controller
      * @var string
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
-    protected $redirectTo = RouteServiceProvider::Root;   //after successful registration, redirect to root that is shopping website
+    protected $redirectTo = RouteServiceProvider::ROOT;   //after successful registration, redirect to root that is shopping website
 
     /**
      * Create a new controller instance.

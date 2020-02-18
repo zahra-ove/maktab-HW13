@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
+use App\Image;
 use App\Pimage;
 // code mahsool bayad unique bashad ke in nokte ra dar jadvale product dar nazar nagereftam.
 class ProductsController extends Controller
@@ -16,7 +17,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::with('category', 'pimages')->get();
+        // $products = Product::with('category', 'pimages')->get();
+        $products = Product::with('category', 'images')->get();
         // return $products;
         return view('admin.products.showProducts')->with('products', $products);
     }
@@ -75,10 +77,17 @@ class ProductsController extends Controller
         }
 
 
-            //storing product's image in Pimage table
-            $newProductImage = new Pimage();
-            $newProductImage->pimage_name = $fileNameToStore;
-            $newProductImage->product_id = $newProduct->id;
+            // //storing product's image in Pimage table
+            // $newProductImage = new Pimage();
+            // $newProductImage->pimage_name = $fileNameToStore;
+            // $newProductImage->product_id = $newProduct->id;
+
+            //store product's image in Images table
+            $newProductImage = new Image();
+            $newProductImage->imageable_id = $newProduct->id;
+            $newProductImage->imageable_type = "App\Product";
+            $newProductImage->image_name = $fileNameToStore;
+            $newProductImage->image_path = "storage/products/";
 
             $newProductImage->save();
 
@@ -149,7 +158,10 @@ class ProductsController extends Controller
     public function destroy($id)
     {
         $deleteProduct = Product::find($id);
-        $deleteProduct->delete();
+        $deleteProduct->images()->delete();   //delete all images related to this product
+        $deleteProduct->comments()->delete();  //delete all comments related to this product
+
+        $deleteProduct->delete();  //and in final step, delete the product itself
 
         return redirect('admin/products')->with('status', "محصول با موفقیت حذف شد.");
     }

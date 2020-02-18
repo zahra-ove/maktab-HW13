@@ -29,12 +29,16 @@ class CheckRole
         //check if user is logged in
         if(Auth::check())
         {
+            //if logged in user has Admin role then redirect to admin panel
             if(Auth::user()->hasRole('Admin'))
             {
 
                 // return redirect()->route('admin.mainPage');
                 return $next($request);
-            }elseif(Auth::user()->hasRole('User'))
+
+            }
+            //if logged in user has not Admin role and is only user, redirect to user profile page
+            elseif(Auth::user()->hasRole('User'))
             {
                 $user = Auth::user();
                 return redirect()->route('users.show', ['user'=>$user]);

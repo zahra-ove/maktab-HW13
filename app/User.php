@@ -19,9 +19,22 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role');
     }
 
+// each user has many comments ---> one to many relationship between user and comments
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 
 
-    //if user has determined role return true, otherwise return false
+//one to many polymorphic relationships to image
+    public function images()
+    {
+        return $this->morphMany('App\Image', 'imageable');
+    }
+
+    
+
+//if user has determined role return true, otherwise return false
     public function hasRole($roleName)
     {
         $roles = $this->roles()->get();

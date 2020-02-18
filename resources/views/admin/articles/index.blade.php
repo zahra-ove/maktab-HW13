@@ -68,7 +68,7 @@
         @foreach($articles as $article)
             <div class="card text-center" style="width:20rem;">
                 <div class="card-img-top">
-                    <img src="{{asset('storage/articles/'.$article->article_image)}}">
+                    <img src="{{asset('storage/articles/'.$article->images->first()->image_name)}}">
                 </div>
 
                 <div class="card-header bg-secondary">

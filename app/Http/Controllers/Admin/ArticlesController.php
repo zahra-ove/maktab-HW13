@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Article;
 use Illuminate\Support\Facades\Storage;
+use App\Article;
+use App\Image;
+
 
 class ArticlesController extends Controller
 {
@@ -17,7 +19,8 @@ class ArticlesController extends Controller
     public function index()
     {
         // $articles = Article::all();
-        $articles = Article::orderBy('created_at', 'desc')->paginate(10);
+        $articles = Article::with('images')->orderBy('created_at', 'desc')->get();
+        // $articles = Article::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.articles.index')->with('articles', $articles);
     }
 
@@ -54,7 +57,7 @@ class ArticlesController extends Controller
             $fileExtension = $request->file('image')->getClientOriginalExtension();
             // file name to store
             $fileNameToStore = $filename.'_'.time().'.'.$fileExtension;
-            $request->file('image')->storeAs('public/article', $fileNameToStore);
+            $request->file('image')->storeAs('public/articles', $fileNameToStore);
 
         }else{
             $fileNameToStore = 'noimage.jpg';
@@ -65,8 +68,17 @@ class ArticlesController extends Controller
         $article->article_title  =  $request->post('title');
         $article->article_body   =  $request->post('body');
         $article->article_image  = $fileNameToStore;
-
         $article->save();
+
+        //store images for this article in images table (polymorphic relationships)
+        $newArticleImage = new Image();
+        $newArticleImage->image_name = $fileNameToStore;
+        $newArticleImage->image_path = "/public/articles";
+        $newArticleImage->imageable_type = "App\Article";
+        $newArticleImage->imageable_id = $article->id;
+        $newArticleImage->save();
+
+
 
         return redirect('admin/articles')->with('status', 'مقاله با موفقیت ذخیره شد.');
     }
@@ -129,17 +141,25 @@ class ArticlesController extends Controller
 
         //finding intended article based on id
         $article = Article::find($id);
+        $newArticleImage = new Image;
 
         //saving user input data
         $article->article_title = $request->post('title');
         $article->article_body = $request->post('body');
+        $article->save();
+
+
+        //add new inserted image to images table
         if($request->hasFile('image')){
-            Storage::delete('public/articles'.$article->article_image);   //first delete old image
-            $article->article_image = $fileNameToStore;   //then save new image that is uploaded
+            // Storage::delete('public/articles'.$article->article_image);   //first delete old image
+            // $article->article_image = $fileNameToStore;   //then save new image that is uploaded
+            $newArticleImage->image_name = $fileNameToStore;
+            $newArticleImage->image_path = "/public/articles";
+            $newArticleImage->imageable_id = $article->id;
+            $newArticleImage->imageable_type = "App\Article";
+            $newArticleImage->save();
         }
 
-
-        $article->save();
 
         return redirect('admin/articles')->with('status', 'مقاله با موفقیت ویرایش شد.');
 
@@ -156,9 +176,14 @@ class ArticlesController extends Controller
 
         $article = Article::find($id);
 
-        if($article->article_image != 'noimage.jpg'){
-            Storage::delete('public/articles'. $article->article_image);  //delete image
+
+
+        if($article->images()->image_name != 'noimage.jpg'){
+            Storage::delete('public/articles'. $article->images()->image_name);  //delete image from storage
         }
+
+        $article->comments()->delete();   //delete all comments related to this article
+        $article->images()->delete();   //delete all images related to this article
         $article->delete();
 
         return redirect('admin/articles')->with('status', 'مقاله با موفقیت حذف شد.');

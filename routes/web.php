@@ -1,10 +1,11 @@
 <?php
-
+//show main page via frontcontroller
+Route::get('/', 'Frontend\FrontController@showMainPage');
 
 /*  shows home page   */
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 /*  shows home page   */
 Route::get('/index', function () {
     return view('index');
@@ -142,7 +143,7 @@ Route::get('/privatePolicy', function () {
 //authentication routes
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/register', 'UsersController@index');
 // Route::post('/register', 'UsersController@store');
 
@@ -155,9 +156,12 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('CheckRol
     Route::resource('products', 'ProductsController');
     Route::resource('categories', 'CategoriesController');
     Route::resource('articles', 'ArticlesController');
+    Route::resource('comments', 'CommentsController');
 });
 
 
 //========= Route for User =================
-Route::resource('users', 'User\UsersController')->except(['store', 'destroy', 'edit', 'update']);
+// Route::resource('users', 'User\UsersController')->except(['store', 'destroy', 'edit', 'update']);
+Route::resource('users/comment', 'User\CommentsController');
+Route::get('/profile', 'UserController@index');
 

@@ -87,4 +87,5 @@
 <script type="text/javascript" src="{{asset('js/jquery.dcjqaccordion.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/owl.carousel.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/custom.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/app.js')}}"></script>
 <!-- JS Part End-->

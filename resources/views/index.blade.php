@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-
+{{-- {{dd($newProducts->first()->images->first()->image_name)}} --}}
 <div id="container">
 
 {{-- Login success message --}}
@@ -19,353 +19,86 @@
 
     <div class="container">
       <div class="row">
-        <!-- Left Part Start-->
-        <aside id="column-left" class="col-sm-3 hidden-xs">
-          <h3 class="subtitle">دسته ها</h3>
-          <div class="box-category">
-            <ul id="cat_accordion">
-              <li><a href="{{url('category')}}">البسه</a> <span class="down"></span>
-                <ul>
-                  <li><a href="{{url('category')}}">آقایان</a> <span class="down"></span>
-                    <ul>
-                      <li><a href="{{url('category')}}">لباس مردانه</a></li>
-                      <li><a href="{{url('category')}}">کفش مردانه</a></li>
-                      <li><a href="{{url('category')}}">اکسسوری مردانه</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="{{url('category')}}">بانوان</a></li>
-                  <li><a href="{{url('category')}}">دخترانه</a> <span class="down"></span>
-                    <ul>
-                      <li><a href="{{url('category')}}">زیردسته ها</a></li>
-                      <li><a href="{{url('category')}}">زیردسته جدید</a></li>
-                      <li><a href="{{url('category')}}">زیردسته جدید</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="{{url('category')}}">پسرانه</a></li>
-                  <li><a href="{{url('category')}}">نوزاد</a></li>
-                  <li><a href="{{url('category')}}">لوازم</a> <span class="down"></span>
-                    <ul>
-                      <li><a href="{{url('category')}}">زیردسته های جدید</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="{{url('category')}}">الکترونیکی</a> <span class="down"></span>
-                <ul>
-                  <li><a href="{{url('category')}}">لپ تاپ</a> <span class="down"></span>
-                    <ul>
-                      <li><a href="{{url('category')}}">زیردسته های جدید</a></li>
-                      <li><a href="{{url('category')}}">زیردسته های جدید</a></li>
-                      <li><a href="{{url('category')}}">زیردسته جدید</a></li>
-                    </ul>
-                  </li>
-                  <li class="custom_id68"><a href="{{url('category')}}">رومیزی</a> <span class="down"></span>
-                    <ul>
-                      <li><a href="{{url('category')}}">زیردسته های جدید</a></li>
-                      <li><a href="{{url('category')}}">زیردسته جدید</a></li>
-                      <li><a href="{{url('category')}}">زیردسته جدید</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="{{url('category')}}">دوربین</a> <span class="down"></span>
-                    <ul>
-                      <li><a href="{{url('category')}}">زیردسته های جدید</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="{{url('category')}}">موبایل و تبلت</a> <span class="down"></span>
-                    <ul>
-                      <li><a href="{{url('category')}}">زیردسته های جدید</a></li>
-                      <li><a href="{{url('category')}}">زیردسته های جدید</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="{{url('category')}}">صوتی و تصویری</a> <span class="down"></span>
-                    <ul>
-                      <li><a href="{{url('category')}}">زیردسته های جدید</a></li>
-                      <li><a href="{{url('category')}}">زیردسته جدید</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="{{url('category')}}">لوازم خانگی</a></li>
-                </ul>
-              </li>
-              <li><a href="{{url('category')}}">کفش</a> <span class="down"></span>
-                <ul>
-                  <li><a href="{{url('category')}}">آقایان</a></li>
-                  <li><a href="{{url('category')}}">بانوان</a> <span class="down"></span>
-                    <ul>
-                      <li><a href="{{url('category')}}">زیردسته های جدید</a></li>
-                      <li><a href="{{url('category')}}">زیردسته ها</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="{{url('category')}}">دخترانه</a></li>
-                  <li><a href="{{url('category')}}">پسرانه</a></li>
-                  <li><a href="{{url('category')}}">نوزاد</a></li>
-                  <li><a href="{{url('category')}}">لوازم</a><span class="down"></span>
-                    <ul>
-                      <li><a href="{{url('category')}}">زیردسته های جدید</a></li>
-                      <li><a href="{{url('category')}}">زیردسته های جدید</a></li>
-                      <li><a href="{{url('category')}}">زیردسته ها</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="{{url('category')}}">ساعت</a> <span class="down"></span>
-                <ul>
-                  <li><a href="{{url('category')}}">ساعت مردانه</a></li>
-                  <li><a href="{{url('category')}}">ساعت زنانه</a></li>
-                  <li><a href="{{url('category')}}">ساعت بچگانه</a></li>
-                  <li><a href="{{url('category')}}">لوازم</a></li>
-                </ul>
-              </li>
-              <li><a href="{{url('category')}}">جواهرات</a> <span class="down"></span>
-                <ul>
-                  <li><a href="{{url('category')}}">نقره</a> <span class="down"></span>
-                    <ul>
-                      <li><a href="{{url('category')}}">زیردسته های جدید</a></li>
-                      <li><a href="{{url('category')}}">زیردسته های جدید</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="{{url('category')}}">طلا</a> <span class="down"></span>
-                    <ul>
-                      <li><a href="{{url('category')}}">تست 1</a></li>
-                      <li><a href="{{url('category')}}">تست 2</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="{{url('category')}}">الماس</a></li>
-                  <li><a href="{{url('category')}}">مروارید</a> <span class="down"></span>
-                    <ul>
-                      <li><a href="{{url('category')}}">زیردسته های جدید</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="{{url('category')}}">زیورآلات آقایان</a></li>
-                  <li><a href="{{url('category')}}">زیورآلات کودکان</a> <span class="down"></span>
-                    <ul>
-                      <li><a href="{{url('category')}}">زیردسته های جدید</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="{{url('category')}}">زیبایی و سلامت</a> <span class="down"></span>
-                <ul>
-                  <li><a href="{{url('category')}}">عطر و ادکلن</a></li>
-                  <li><a href="{{url('category')}}">آرایشی</a></li>
-                  <li><a href="{{url('category')}}">ضد آفتاب</a></li>
-                  <li><a href="{{url('category')}}">مراقبت از پوست</a></li>
-                  <li><a href="{{url('category')}}">مراقبت از چشم</a></li>
-                  <li><a href="{{url('category')}}">مراقبت از مو</a></li>
-                </ul>
-              </li>
-              <li><a href="{{url('category')}}">کودک و نوزاد</a> <span class="down"></span>
-                <ul>
-                  <li><a href="{{url('category')}}">اسباب بازی</a></li>
-                  <li><a href="{{url('category')}}">بازی</a> <span class="down"></span>
-                    <ul>
-                      <li><a href="{{url('category')}}">تست 25</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="{{url('category')}}">پازل</a></li>
-                  <li><a href="{{url('category')}}">سرگرمی</a></li>
-                  <li><a href="{{url('category')}}">متنوع</a></li>
-                  <li><a href="{{url('category')}}">سلامت و امنیت</a></li>
-                </ul>
-              </li>
-              <li><a href="{{url('category')}}">ورزشی</a> <span class="down"></span>
-                <ul>
-                  <li><a href="{{url('category')}}">دوچرخه سواری</a></li>
-                  <li><a href="{{url('category')}}">دویدن</a></li>
-                  <li><a href="{{url('category')}}">شنا</a></li>
-                  <li><a href="{{url('category')}}">فوتبال</a></li>
-                  <li><a href="{{url('category')}}">گلف</a></li>
-                  <li><a href="{{url('category')}}">موج سواری</a></li>
-                </ul>
-              </li>
-              <li><a href="{{url('category')}}">خانه و باغچه</a> <span class="down"></span>
-                <ul>
-                  <li><a href="{{url('category')}}">لوازم خواب</a></li>
-                  <li><a href="{{url('category')}}">خوراک</a></li>
-                  <li><a href="{{url('category')}}">لوازم منزل</a></li>
-                  <li><a href="{{url('category')}}">آشپزخانه</a></li>
-                  <li><a href="{{url('category')}}">روشنایی</a></li>
-                  <li><a href="{{url('category')}}">ابزارها</a></li>
-                </ul>
-              </li>
-              <li><a href="{{url('category')}}">خوراک</a> <span class="down"></span>
-                <ul>
-                  <li><a href="{{url('category')}}">نوشیدنی</a></li>
-                  <li><a href="{{url('category')}}">تنقلات</a></li>
-                  <li><a href="{{url('category')}}">میان وعده</a></li>
-                  <li><a href="{{url('category')}}">خشک بار</a></li>
-                  <li><a href="{{url('category')}}">شکلات</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <h3 class="subtitle">پرفروش ها</h3>
-          <div class="side-item">
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/apple_cinema_30-50x50.jpg')}}" alt="تی شرت کتان مردانه" title="تی شرت کتان مردانه" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{url('product')}}">تی شرت کتان مردانه</a></h4>
-                <p class="price"><span class="price-new">110000 تومان</span> <span class="price-old">122000 تومان</span> <span class="saving">-10%</span></p>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/iphone_1-50x50.jpg')}}" alt="آیفون 7" title="آیفون 7" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{url('product')}}">آیفون 7</a></h4>
-                <p class="price"> 2200000 تومان </p>
-                <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/macbook_1-50x50.jpg')}}" alt="آیدیا پد یوگا" title="آیدیا پد یوگا" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{url('product')}}">آیدیا پد یوگا</a></h4>
-                <p class="price"> 900000 تومان </p>
-                <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/sony_vaio_1-50x50.jpg')}}" alt="کفش راحتی مردانه" title="کفش راحتی مردانه" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{url('product')}}">کفش راحتی مردانه</a></h4>
-                <p class="price"> <span class="price-new">32000 تومان</span> <span class="price-old">12 میلیون تومان</span> <span class="saving">-25%</span> </p>
-                <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/FinePix-Long-Zoom-Camera-50x50.jpg')}}" alt="دوربین فاین پیکس" title="دوربین فاین پیکس" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{url('product')}}">دوربین فاین پیکس</a></h4>
-                <p class="price">122000 تومان</p>
-              </div>
-            </div>
-          </div>
-          <h3 class="subtitle">ویژه</h3>
-          <div class="side-item">
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/macbook_pro_1-50x50.jpg')}}" alt=" کتاب آموزش باغبانی " title=" کتاب آموزش باغبانی " class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{url('product')}}">کتاب آموزش باغبانی</a></h4>
-                <p class="price"> <span class="price-new">98000 تومان</span> <span class="price-old">120000 تومان</span> <span class="saving">-26%</span> </p>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/samsung_tab_1-50x50.jpg')}}" alt="تبلت ایسر" title="تبلت ایسر" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{url('product')}}">تبلت ایسر</a></h4>
-                <p class="price"> <span class="price-new">98000 تومان</span> <span class="price-old">240000 تومان</span> <span class="saving">-5%</span> </p>
-                <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/apple_cinema_30-50x50.jpg')}}" alt="تی شرت کتان مردانه" title="تی شرت کتان مردانه" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=product/product&amp;product_id=42">تی شرت کتان مردانه</a></h4>
-                <p class="price"> <span class="price-new">110000 تومان</span> <span class="price-old">122000 تومان</span> <span class="saving">-10%</span> </p>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/nikon_d300_1-50x50.jpg')}}" alt="دوربین دیجیتال حرفه ای" title="دوربین دیجیتال حرفه ای" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{url('product')}}">دوربین دیجیتال حرفه ای</a></h4>
-                <p class="price"> <span class="price-new">92000 تومان</span> <span class="price-old">98000 تومان</span> <span class="saving">-6%</span> </p>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/nikon_d300_5-50x50.jpg')}}" alt="محصولات مراقبت از مو" title="محصولات مراقبت از مو" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{url('product')}}">محصولات مراقبت از مو</a></h4>
-                <p class="price"> <span class="price-new">66000 تومان</span> <span class="price-old">90000 تومان</span> <span class="saving">-27%</span> </p>
-                <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/macbook_air_1-50x50.jpg')}}" alt="لپ تاپ ایلین ور" title="لپ تاپ ایلین ور" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{url('product')}}">لپ تاپ ایلین ور</a></h4>
-                <p class="price"> <span class="price-new">10 میلیون تومان</span> <span class="price-old">12 میلیون تومان</span> <span class="saving">-5%</span> </p>
-              </div>
-            </div>
-          </div>
-          <div class="list-group">
-            <h3 class="subtitle">محتوای سفارشی</h3>
-            <p>این یک بلاک محتواست. هر نوع محتوایی شامل html، نوشته یا تصویر را میتوانید در آن قرار دهید. </p>
-            <p> در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد. </p>
-            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
-          </div>
-          <div class="banner owl-carousel">
-            <div class="item"> <a href="#"><img src="{{asset('image/banner/small-banner1-265x350.jpg')}}" alt="small banner" class="img-responsive" /></a> </div>
-            <div class="item"> <a href="#"><img src="{{asset('image/banner/small-banner-265x350.jpg')}}" alt="small banner1" class="img-responsive" /></a> </div>
-          </div>
-          <h3 class="subtitle">جدیدترین</h3>
-          <div class="side-item">
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/iphone_6-50x50.jpg')}}" alt="کرم مو آقایان" title="کرم مو آقایان" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{url('product')}}">کرم مو آقایان</a></h4>
-                <p class="price"> 42300 تومان </p>
-                <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/nikon_d300_5-50x50.jpg')}}" alt="محصولات مراقبت از مو" title="محصولات مراقبت از مو" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{url('product')}}">محصولات مراقبت از مو</a></h4>
-                <p class="price"> <span class="price-new">66000 تومان</span> <span class="price-old">90000 تومان</span> <span class="saving">-27%</span> </p>
-                <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/nikon_d300_4-50x50.jpg')}}" alt="کرم لخت کننده مو" title="کرم لخت کننده مو" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{url('product')}}">کرم لخت کننده مو</a></h4>
-                <p class="price"> 88000 تومان </p>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/macbook_5-50x50.jpg')}}" alt="ژل حمام بانوان" title="ژل حمام بانوان" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{url('product')}}">ژل حمام بانوان</a></h4>
-                <p class="price"> <span class="price-new">19500 تومان</span> <span class="price-old">21900 تومان</span> <span class="saving">-4%</span> </p>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/macbook_4-50x50.jpg')}}" alt="عطر گوچی" title="عطر گوچی" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{url('product')}}">عطر گوچی</a></h4>
-                <p class="price"> 85000 تومان </p>
-                <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/macbook_3-50x50.jpg')}}" alt="رژ لب گارنیر" title="رژ لب گارنیر" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{url('product')}}">رژ لب گارنیر</a></h4>
-                <p class="price"> 123000 تومان </p>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/macbook_2-50x50.jpg')}}" alt="عطر نینا ریچی" title="عطر نینا ریچی" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{url('product')}}">عطر نینا ریچی</a></h4>
-                <p class="price"> 110000 تومان </p>
-              </div>
-            </div>
-          </div>
-        </aside>
-        <!-- Left Part End-->
         <!--Middle Part Start-->
-        <div id="content" class="col-sm-9">
+        <div id="content" class="col-sm-12">
+
           <!-- Slideshow Start-->
-          <div class="slideshow single-slider owl-carousel">
-            <div class="item"> <a href="#"><img class="img-responsive" src="{{asset('image/slider/banner-1.jpg')}}" alt="banner 1" /></a> </div>
-            <div class="item"> <a href="#"><img class="img-responsive" src="{{asset('image/slider/banner-2.jpg')}}" alt="banner 2" /></a> </div>
-            <div class="item"> <a href="#"><img class="img-responsive" src="{{asset('image/slider/banner-3.jpg')}}" alt="banner 3" /></a> </div>
+          <div class="slideshow single-slider owl-carousel justify-content-center">
+            <div class="item mx-sm-0"> <a href="#"><img class="img-responsive" src="{{asset('image/slider/r1.jpg')}}" alt="banner 1" style="width:100%" /></a> </div>
+            <div class="item mx-sm-0"> <a href="#"><img class="img-responsive" src="{{asset('image/slider/f8.jpg')}}" alt="banner 2" style="width:100%" /></a> </div>
+            <div class="item mx-sm-0"> <a href="#"><img class="img-responsive" src="{{asset('image/slider/l7.jpg')}}" alt="banner 3" style="width:100%"/></a> </div>
+            <div class="item mx-sm-0"> <a href="#"><img class="img-responsive" src="{{asset('image/slider/m2.jpg')}}" alt="banner 3" style="width:100%"/></a> </div>
           </div>
+
+
+          {{-- <div class="carousel slide" id="mySlider" data-ride="carousel">
+              <!-- indicators dot -->
+              <ol class="carousel-indicators">
+                  <li data-target="#mySlider" data-slide-to="0"></li>
+                  <li data-target="#mySlider" data-slide-to="1"></li>
+                  <li data-target="#mySlider" data-slide-to="3"></li>
+              </ol>
+
+
+              <!-- wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="{{asset('image/slider/furniture1.jpg')}}" alt="fruits" class="d-block w-100">
+                        <div class="carousel-caption">
+                            <h1>خریدی لذت بخش</h1>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="{{asset('image/slider/furniture2.jpg')}}" alt="fruits" class="d-block w-100">
+                        <div class="carousel-caption">
+                            <h1>خریدی لذت بخش</h1>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="{{asset('image/slider/clothing1.jpg')}}" alt="fruits" class="d-block w-100">
+                        <div class="carousel-caption">
+                            <h1>خریدی لذت بخش</h1>
+                        </div>
+                    </div>
+              </div>
+
+              <!-- Controls or next and prev buttons -->
+              <a class="carousel-control-prev" href="#mySlider" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#mySlider" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+
+          </div> --}}
           <!-- Slideshow End-->
+
+
           <!-- Featured محصولات Start-->
-          <h3 class="subtitle">ویژه</h3>
+          <h3 class="subtitle">جدیدترین محصولات</h3>
           <div class="owl-carousel product_carousel">
+
+            
             <div class="product-thumb clearfix">
+            <div class="image"><a href="{{url('product')}}"><img src="{{asset('storage/products/'.$newProducts->first()->images->first()->image_name)}}" alt="تی شرت کتان مردانه" title="{{$newProducts->first()->images->first()->image_name}}" class="img-responsive" style="width:200px;height:200px;/></a></div>
+                <div class="caption">
+                  <h4><a href="{{url('product')}}">{{$newProducts->first()->product_name}}</a></h4>
+                  <p class="price"><span>{{$newProducts->first()->product_price}}تومان</span></p>
+                </div>
+                <div class="button-group">
+                  <button class="btn-primary" type="button" onClick="cart.add('42');"><span>افزودن به سبد</span></button>
+                  <div class="add-to-links">
+                    <button type="button" data-toggle="tooltip" title="Add to Wish List" onClick=""><i class="fa fa-heart"></i></button>
+                    <button type="button" data-toggle="tooltip" title="مقایسه this محصولات" onClick=""><i class="fa fa-exchange"></i></button>
+                  </div>
+                </div>
+            </div>
+
+            {{-- <div class="product-thumb clearfix">
               <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/apple_cinema_30-200x200.jpg')}}" alt="تی شرت کتان مردانه" title="تی شرت کتان مردانه" class="img-responsive" /></a></div>
               <div class="caption">
                 <h4><a href="{{url('product')}}">تی شرت کتان مردانه</a></h4>
@@ -378,7 +111,9 @@
                   <button type="button" data-toggle="tooltip" title="مقایسه this محصولات" onClick=""><i class="fa fa-exchange"></i></button>
                 </div>
               </div>
-            </div>
+            </div> --}}
+
+
             <div class="product-thumb clearfix">
               <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/samsung_tab_1-200x200.jpg')}}" alt="تبلت ایسر" title="تبلت ایسر" class="img-responsive" /></a></div>
               <div class="caption">

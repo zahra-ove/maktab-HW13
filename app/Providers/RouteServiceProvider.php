@@ -22,8 +22,9 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/home';
-    public const Root = '/';
-
+    public const ROOT = '/';   //I added this constant, because if logged in user is generic user, redirect to main page
+    public const ADMIN = '/admin';   //I added this constant, because if logged in user is admin, redirect to admin panel
+    public const PROFILE = '/profile';   //I added this constant, because if logged in user is admin, redirect to admin panel
     /**
      * Define your route model bindings, pattern filters, etc.
      *

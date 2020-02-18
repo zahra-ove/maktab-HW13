@@ -175,6 +175,14 @@
                         <p>لیست مقالات</p>
                     </a>
                 </li>
+
+
+                <li class="nav-item">
+                    <a href="{{route('admin.comments.index')}}" class="nav-link">
+                        <i class="fa fa-circle-o nav-icon"></i>
+                        <p>لیست نظرات</p>
+                    </a>
+                </li>
             </ul>
         </li>
 

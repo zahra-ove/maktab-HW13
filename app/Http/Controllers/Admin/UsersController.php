@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Gender;
 class UsersController extends Controller
@@ -17,8 +18,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::with('gender')->get();
-        // return $users;
+        $users = User::with('gender', 'roles')->get();
+        return $users;
         return view('admin.users.showUsers')->with('users', $users);
     }
 
@@ -129,6 +130,12 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
+        $user->comments()->delete();
+        $user->images()->delete();
+
+        if($user->images()->image_name != 'noimage.jpg'){
+            Storage::delete('public/articles'. $user->images()->image_name);  //delete image
+        }
         $user->delete();
 
         return redirect('admin/users')->with('status', 'کاربر با موفقیت حذف شد.');
