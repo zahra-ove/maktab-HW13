@@ -67,7 +67,7 @@ class ArticlesController extends Controller
 
         $article->article_title  =  $request->post('title');
         $article->article_body   =  $request->post('body');
-        $article->article_image  = $fileNameToStore;
+        // $article->article_image  = $fileNameToStore;
         $article->save();
 
         //store images for this article in images table (polymorphic relationships)
@@ -176,10 +176,12 @@ class ArticlesController extends Controller
 
         $article = Article::find($id);
 
+        //finding article image name
+        $articleImageName = $article->images()->first()->image_name;
 
-
-        if($article->images()->image_name != 'noimage.jpg'){
-            Storage::delete('public/articles'. $article->images()->image_name);  //delete image from storage
+        if($articleImageName != 'noimage.jpg')
+        {
+            Storage::delete('public/articles/'. $articleImageName);  //delete image from storage
         }
 
         $article->comments()->delete();   //delete all comments related to this article

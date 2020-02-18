@@ -65,6 +65,7 @@
             {{-- <br/><br/><br/><br/> --}}
             <div class="form-group my-5">
                 <input type="submit"  value="افزودن"  class="btn btn-primary col-sm-1 control-label">
+                <a href="{{route('admin.products.index')}}" class="btn btn-default">بازگشت <span class="fa fa-arrow-circle-left"></span></a>
             </div>
 
         </form>

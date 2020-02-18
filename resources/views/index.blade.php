@@ -82,22 +82,22 @@
           <h3 class="subtitle">جدیدترین محصولات</h3>
           <div class="owl-carousel product_carousel">
 
-            
-            <div class="product-thumb clearfix">
-            <div class="image"><a href="{{url('product')}}"><img src="{{asset('storage/products/'.$newProducts->first()->images->first()->image_name)}}" alt="تی شرت کتان مردانه" title="{{$newProducts->first()->images->first()->image_name}}" class="img-responsive" style="width:200px;height:200px;/></a></div>
-                <div class="caption">
-                  <h4><a href="{{url('product')}}">{{$newProducts->first()->product_name}}</a></h4>
-                  <p class="price"><span>{{$newProducts->first()->product_price}}تومان</span></p>
+            @foreach($newProducts as $newProduct)
+                <div class="product-thumb clearfix">
+                    <div class="image"><a href="{{url('product')}}"><img src="{{asset('storage/products/'.$newProduct->images->first()->image_name)}}" alt="تی شرت کتان مردانه" title="{{$newProduct->first()->images->first()->image_name}}" class="img-responsive" /></a></div>
+                    <div class="caption">
+                    <h4><a href="{{url('product')}}">{{$newProduct->product_name}}</a></h4>
+                    <p class="price"><span>{{$newProduct->product_price}}تومان</span></p>
+                    </div>
+                    <div class="button-group">
+                    <button class="btn-primary" type="button" onClick="cart.add('42');"><span>افزودن به سبد</span></button>
+                    <div class="add-to-links">
+                        <button type="button" data-toggle="tooltip" title="Add to Wish List" onClick=""><i class="fa fa-heart"></i></button>
+                        <button type="button" data-toggle="tooltip" title="مقایسه this محصولات" onClick=""><i class="fa fa-exchange"></i></button>
+                    </div>
+                    </div>
                 </div>
-                <div class="button-group">
-                  <button class="btn-primary" type="button" onClick="cart.add('42');"><span>افزودن به سبد</span></button>
-                  <div class="add-to-links">
-                    <button type="button" data-toggle="tooltip" title="Add to Wish List" onClick=""><i class="fa fa-heart"></i></button>
-                    <button type="button" data-toggle="tooltip" title="مقایسه this محصولات" onClick=""><i class="fa fa-exchange"></i></button>
-                  </div>
-                </div>
-            </div>
-
+            @endforeach
             {{-- <div class="product-thumb clearfix">
               <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/apple_cinema_30-200x200.jpg')}}" alt="تی شرت کتان مردانه" title="تی شرت کتان مردانه" class="img-responsive" /></a></div>
               <div class="caption">
@@ -114,7 +114,7 @@
             </div> --}}
 
 
-            <div class="product-thumb clearfix">
+            {{-- <div class="product-thumb clearfix">
               <div class="image"><a href="{{url('product')}}"><img src="{{asset('image/product/samsung_tab_1-200x200.jpg')}}" alt="تبلت ایسر" title="تبلت ایسر" class="img-responsive" /></a></div>
               <div class="caption">
                 <h4><a href="{{url('product')}}">تبلت ایسر</a></h4>
@@ -187,7 +187,7 @@
                   <button type="button" data-toggle="tooltip" title="مقایسه this محصولات" onClick=""><i class="fa fa-exchange"></i></button>
                 </div>
               </div>
-            </div>
+            </div> --}}
           </div>
           <!-- Featured محصولات End-->
           <!-- Banner Start-->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Image;
@@ -158,6 +159,14 @@ class ProductsController extends Controller
     public function destroy($id)
     {
         $deleteProduct = Product::find($id);
+        //get product's image name
+        $productImageName = $deleteProduct->images()->first()->image_name;
+
+
+        if($productImageName != 'noimage.jpg'){
+            Storage::delete('public/products/'. $productImageName);  //delete image from storage
+        }
+
         $deleteProduct->images()->delete();   //delete all images related to this product
         $deleteProduct->comments()->delete();  //delete all comments related to this product
 
