@@ -19,7 +19,7 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::with('gender', 'roles')->get();
-        return $users;
+        // return $users;
         return view('admin.users.showUsers')->with('users', $users);
     }
 
@@ -131,11 +131,11 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         $user->comments()->delete();
-        $user->images()->delete();
-
-        if($user->images()->image_name != 'noimage.jpg'){
-            Storage::delete('public/articles'. $user->images()->image_name);  //delete image
-        }
+        // $user->images()->delete();
+        // dd($user->first()->images()->first()->image_name);
+        // if($user->images()->image_name != 'noimage.jpg'){
+        //     Storage::delete('public/articles'. $user->images()->image_name);  //delete image
+        // }
         $user->delete();
 
         return redirect('admin/users')->with('status', 'کاربر با موفقیت حذف شد.');

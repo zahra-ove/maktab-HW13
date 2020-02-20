@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+{{-- {{dd($Sliders)}} --}}
 {{-- {{dd($newProducts->first()->images->first()->image_name)}} --}}
 <div id="container">
 
@@ -24,10 +25,18 @@
 
           <!-- Slideshow Start-->
           <div class="slideshow single-slider owl-carousel justify-content-center">
-            <div class="item mx-sm-0"> <a href="#"><img class="img-responsive" src="{{asset('image/slider/r1.jpg')}}" alt="banner 1" style="width:100%" /></a> </div>
-            <div class="item mx-sm-0"> <a href="#"><img class="img-responsive" src="{{asset('image/slider/f8.jpg')}}" alt="banner 2" style="width:100%" /></a> </div>
-            <div class="item mx-sm-0"> <a href="#"><img class="img-responsive" src="{{asset('image/slider/l7.jpg')}}" alt="banner 3" style="width:100%"/></a> </div>
-            <div class="item mx-sm-0"> <a href="#"><img class="img-responsive" src="{{asset('image/slider/m2.jpg')}}" alt="banner 3" style="width:100%"/></a> </div>
+
+
+            @foreach($sliders as $slider)
+                @if($slider->isActive == '1')
+                 <div class="item mx-sm-0"> <a href="#"><img class="img-responsive" src="{{asset('storage/sliders/'.$slider->images->first()->image_name)}}" alt="banner 1" style="width:100%" /></a> </div>
+                @endif
+            @endforeach
+
+            {{-- <div class="item mx-sm-0"> <a href="#"><img class="img-responsive" src="{{asset('image/slider/r1.jpg')}}" alt="banner 1" style="max-width:100%" /></a> </div>
+            <div class="item mx-sm-0"> <a href="#"><img class="img-responsive" src="{{asset('image/slider/f8.jpg')}}" alt="banner 2" style="max-width:100%" /></a> </div>
+            <div class="item mx-sm-0"> <a href="#"><img class="img-responsive" src="{{asset('image/slider/l7.jpg')}}" alt="banner 3" style="max-width:100%"/></a> </div>
+            <div class="item mx-sm-0"> <a href="#"><img class="img-responsive" src="{{asset('image/slider/m2.jpg')}}" alt="banner 3" style="max-width:100%"/></a> </div> --}}
           </div>
 
 

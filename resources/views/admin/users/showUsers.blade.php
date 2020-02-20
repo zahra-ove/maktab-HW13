@@ -12,7 +12,7 @@
 
     <div class="container ">
         <a href="{{route('admin.users.create')}}" class="btn btn-sm btn-outline-warning">افزودن کاربر جدید</a>
-    </div>
+
     <div class="col-auto my-4">
         <table class="table-responsive-sm  table-bordered table-hover text-center mytable">
             <thead class="thead-light">
@@ -55,6 +55,6 @@
         </table>
     </div>
 
-
+</div>
 
 @endsection

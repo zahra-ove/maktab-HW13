@@ -157,6 +157,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('CheckRol
     Route::resource('categories', 'CategoriesController');
     Route::resource('articles', 'ArticlesController');
     Route::resource('comments', 'CommentsController');
+    Route::resource('slides', 'SlidersController');
 });
 
 

@@ -183,6 +183,14 @@
                         <p>لیست نظرات</p>
                     </a>
                 </li>
+
+
+                <li class="nav-item">
+                    <a href="{{route('admin.slides.index')}}" class="nav-link">
+                        <i class="fa fa-circle-o nav-icon"></i>
+                        <p>اسلایدر</p>
+                    </a>
+                </li>
             </ul>
         </li>
 
