@@ -41,7 +41,7 @@
             </div>
 
 
-            <div class="form-group required">
+            {{-- <div class="form-group required">
                 <label for="category_id" class="col-sm-1 control-label">دسته بندی</label>
                   <select name="category_id" id="gender" class="custom-select form-control col-sm-2" required/>
                         <option value="" selected>--دسته بندی--</option>
@@ -54,6 +54,16 @@
                         <option value="7">اسباب بازی، کودک و نوزاد</option>
                         <option value="8">ورزش و سفر</option>
                         <option value="9">خوردنی و آشامیدنی</option>
+                  </select>
+            </div> --}}
+
+            <div class="form-group required">
+                <label for="category_id" class="col-sm-1 control-label">دسته بندی</label>
+                  <select name="category_id" id="gender" class="custom-select form-control col-sm-2" required/>
+                        <option value="" selected>--دسته بندی--</option>
+                        @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->category_name}}</option>
+                        @endforeach
                   </select>
             </div>
 

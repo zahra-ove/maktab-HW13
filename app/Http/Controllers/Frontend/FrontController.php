@@ -33,9 +33,18 @@ class FrontController extends Controller
         // get slider image from database
         $slidersImage = Slider::with('images')->latest()->limit(5)->get();
         // return $slidersImage;
+
+        //get latest bags from database
+        $newBags = Product::with('images', 'category')->where('category_id', '13')->latest()->limit(5)->get();
+
+        //ALL PRODUCTS
+        $newwatches = Product::with('images', 'category')->where('category_id', '14')->latest()->limit(5)->get();
+        // return $newwatches;
         return view('index')->with([
-                                    'newProducts' => $newProducts,
-                                    'sliders'     => $slidersImage
+                                    'newProducts'  =>  $newProducts,
+                                    'sliders'      =>  $slidersImage,
+                                    'newBags'      =>  $newBags,
+                                    'newwatches'  =>  $newwatches
                                      ]);
     }
 

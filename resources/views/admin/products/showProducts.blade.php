@@ -2,11 +2,20 @@
 
 @section('content')
 
+
 @if(session('status'))
-<div class="container alert alert-success">
+<div class="container alert alert-success alert-dismissable">
+    <button class="close text-white" type="button" data-dismiss="alert">&times;&nbsp;&nbsp;</button>
     {{session('status')}}
 </div>
 @endif
+
+
+{{-- @if(session('status'))
+<div class="container alert alert-success">
+    {{session('status')}}
+</div>
+@endif --}}
 
 
 <div class="container ">

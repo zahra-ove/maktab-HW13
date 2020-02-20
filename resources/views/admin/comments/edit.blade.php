@@ -13,42 +13,37 @@
                 </ul>
             </div>
         @endif
-        <h2>افزودن نظر جدید</h2>
+        <h2>ویرایش نظر</h2>
         <br><br>
-        <form action="{{route('admin.comments.store')}}" method="post">
+        <form action="{{route('admin.comments.update' ,['comment'=>$comment])}}" method="post">
             @csrf
-
+            @method('PUT')
             {{-- <div class="form-group">
-                <label class="control-label" for="field_name" >نام فیلد مورد نظر  </label>
-                <input type="text"  name="field_name"  placeholder="نام فیلد مورد نظر"  id="field_name" class="form-control" value="{{old('field_name')}}" required/>
-            </div> --}}
-
-            <div class="form-group">
                 <div class="form-group required">
                     <label for="field_name" class="col-sm-1 control-label">فیلدموردنظر</label>
                       <select name="field_name" id="field_name" class="custom-select form-control col-sm-2" required/>
-                            <option value="" selected>--فیلد--</option>
-                            <option value="App\Product">محصولات</option>
-                            <option value="App\Article">مقالات</option>
+                            <option value="">--فیلد--</option>
+                            <option value="App\Product"  @if($comment->commentable_type == 'App\Product')  {{"selected"}} @else {{""}} @endif>محصولات</option>
+                            <option value="App\Article"  @if($comment->commentable_type == 'App\Article')  {{"selected"}} @else {{""}} @endif>مقالات</option>
                       </select>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="form-group">
                 <label class="control-label" for="field_code" >کد فیلد مورد نظر  </label>
-                <input type="text"  name="field_code"  placeholder="کد فیلد مورد نظر"  id="field_code" class="form-control" value="{{old('field_code')}}" required/>
+                <input type="text"  name="field_code"  placeholder="کد فیلد مورد نظر"  id="field_code" class="form-control" value="{{$comment->commentable_id}}" required/>
             </div>
 
 
             <div class="form-group">
                 <label class="control-label" for="body" >متن نظر</label>
-                <input type="text"  name="body"  placeholder="متن نظر"  id="body" class="form-control" value="{{old('body')}}" required/>
+                <input type="text"  name="body"  placeholder="متن نظر"  id="body" class="form-control" value="{{$comment->body}}" required/>
             </div>
 
 
             <div class="form-group">
                 <label class="control-label" for="email" >ایمیل</label>
-                <input type="email"  name="email"  placeholder="ایمیل"  id="email" class="form-control" value="{{old('email')}}" required/>
+                <input type="email"  name="email"  placeholder="ایمیل"  id="email" class="form-control" value="{{$comment->user->email}}" required/>
             </div>
 
             <div class="form-group my-5">

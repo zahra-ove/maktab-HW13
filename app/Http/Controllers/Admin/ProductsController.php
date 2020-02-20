@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Image;
 use App\Pimage;
+use App\Category;
 // code mahsool bayad unique bashad ke in nokte ra dar jadvale product dar nazar nagereftam.
 class ProductsController extends Controller
 {
@@ -31,7 +32,8 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('admin.products.createProduct');
+        $categories = Category::all();
+        return view('admin.products.createProduct')->with('categories', $categories);
     }
 
     /**

@@ -19,7 +19,7 @@ class CommentsController extends Controller
     {
         $comments = Comment::with('user')->get();
         // $comments = Comment::find(3);
-        // return $comments->commentable;
+        // return $comments->first()->commentable()->first()->images()->get();
         return view('admin.comments.index')->with('comments', $comments);
     }
 
@@ -43,7 +43,7 @@ class CommentsController extends Controller
     {
         $request->validate([
             'field_name' => 'required|string',
-            'field_code' => 'required|string',
+            'field_code' => 'required|numeric',
             'body'       => 'required|string',
             'email'       => 'required|string',
         ]);
@@ -97,6 +97,7 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+// we can not edit field name, because column name of different table that have ppolymorphic relation differs from eachother
     public function update(Request $request, $id)
     {
         //find related comment
@@ -104,8 +105,7 @@ class CommentsController extends Controller
 
         //validate received data from edit form
         $request->validate([
-            'field_name'  =>  'required|string',
-            'field_code'  =>  'required|string',
+            'field_code'  =>  'required|numeric',
             'body'        =>  'required|string',
             'email'       => 'required|string',
         ]);
@@ -117,7 +117,6 @@ class CommentsController extends Controller
         $id = $user->first()->id;
 
 
-        $editedComment->commentable_type = $request->post('field_name');
         $editedComment->commentable_id   = $request->post('field_code');
         $editedComment->body             = $request->post('body');
         $editedComment->user_id          = $id;
@@ -134,6 +133,9 @@ class CommentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $deleteComment = Comment::find($id);
+        $deleteComment->delete();
+
+        return redirect('admin/comments')->with('status', "نظر مورد نظر با موفقیت حذف شد.");
     }
 }

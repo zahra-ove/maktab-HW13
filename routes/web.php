@@ -164,5 +164,5 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('CheckRol
 //========= Route for User =================
 // Route::resource('users', 'User\UsersController')->except(['store', 'destroy', 'edit', 'update']);
 Route::resource('users/comment', 'User\CommentsController');
-Route::get('/profile', 'UserController@index');
+Route::get('/profile', 'UserController@index')->name('profile');
 
