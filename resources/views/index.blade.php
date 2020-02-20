@@ -43,9 +43,9 @@
 
             @foreach($newProducts as $newProduct)
                 <div class="product-thumb clearfix">
-                    <div class="image"><a href="{{url('product')}}"><img src="{{asset('storage/products/'.$newProduct->images->first()->image_name)}}" alt="تی شرت کتان مردانه" title="{{$newProduct->first()->images->first()->image_name}}" class="img-responsive" /></a></div>
+                    <div class="image"><a href="{{route('product', ['id' => $newProduct->id])}}"><img src="{{asset('storage/products/'.$newProduct->images->first()->image_name)}}" alt="تی شرت کتان مردانه" title="{{$newProduct->first()->images->first()->image_name}}" class="img-responsive" /></a></div>
                     <div class="caption">
-                    <h4><a href="{{url('product')}}">{{$newProduct->product_name}}</a></h4>
+                    <h4><a href="{{route('product', ['id' => $newProduct->id])}}">{{$newProduct->product_name}}</a></h4>
                     <p class="price"><span>{{$newProduct->product_price}}تومان</span></p>
                     </div>
                     <div class="button-group">
@@ -78,9 +78,9 @@
                 <div class="owl-carousel latest_category_tabs">
                     @foreach($newBags as $newBag)
                     <div class="product-thumb">
-                        <div class="image"><a href="{{url('product')}}"><img src="{{asset('storage/products/'.$newBag->images->first()->image_name)}}" alt="{{$newBag->images->first()->image_name}}" title="{{$newBag->images->first()->image_name}}" class="img-responsive" /></a></div>
+                        <div class="image"><a href="{{route('product', ['id' => $newBag->id])}}"><img src="{{asset('storage/products/'.$newBag->images->first()->image_name)}}" alt="{{$newBag->images->first()->image_name}}" title="{{$newBag->images->first()->image_name}}" class="img-responsive" /></a></div>
                         <div class="caption">
-                        <h4><a href="{{url('product')}}">{{$newBag->images->first()->image_name}}</a></h4>
+                        <h4><a href="{{route('product', ['id' => $newBag->id])}}">{{$newBag->images->first()->image_name}}</a></h4>
                         <p class="price"> <span class="price-new">{{$newBag->product_price}} تومان</span></p>
                         <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
                         </div>
@@ -107,9 +107,9 @@
                 <div class="owl-carousel latest_category_tabs">
                     @foreach($newwatches as $newWatch)
                         <div class="product-thumb">
-                            <div class="image"><a href="{{url('product')}}"><img src="{{asset('storage/products/'.$newWatch->images->first()->image_name)}}" alt="{{$newWatch->images->first()->image_name}}" title="{{$newWatch->images->first()->image_name}}" class="img-responsive" /></a></div>
+                            <div class="image"><a href="{{route('product', ['id' => $newWatch->id])}}"><img src="{{asset('storage/products/'.$newWatch->images->first()->image_name)}}" alt="{{$newWatch->images->first()->image_name}}" title="{{$newWatch->images->first()->image_name}}" class="img-responsive" /></a></div>
                             <div class="caption">
-                            <h4><a href="{{url('product')}}">{{$newWatch->images->first()->image_name}}</a></h4>
+                            <h4><a href="{{route('product', ['id' => $newWatch->id])}}">{{$newWatch->images->first()->image_name}}</a></h4>
                             <p class="price"> <span class="price-new">{{$newWatch ->product_price}} تومان</span></p>
                             <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
                             </div>

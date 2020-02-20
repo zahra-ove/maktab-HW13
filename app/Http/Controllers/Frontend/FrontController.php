@@ -51,6 +51,9 @@ class FrontController extends Controller
 
     public function showProduct($id)
     {
+        $product = Product::find($id);
+        // dd($id);
         //display a single product in showSingleProduct.blade.php in frontEnd view folder in view directory of resources directory
+        return view('product')->with('product', $product);
     }
 }

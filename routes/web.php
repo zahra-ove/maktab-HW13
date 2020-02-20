@@ -2,10 +2,9 @@
 //show main page via frontcontroller
 Route::get('/', 'Frontend\FrontController@showMainPage');
 
-/*  shows home page   */
-// Route::get('/', function () {
-//     return view('index');
-// });
+//show sigle product page
+Route::get('/product/{id}','Frontend\FrontController@showProduct')->name('product');
+
 /*  shows home page   */
 Route::get('/index', function () {
     return view('index');
@@ -31,9 +30,9 @@ Route::get('/category', function () {
 
 
 /*  shows product page   */
-Route::get('/product', function () {
-    return view('product');
-});
+// Route::get('/product', function () {
+//     return view('product');
+// });
 
 
 // /*  shows login page   */
