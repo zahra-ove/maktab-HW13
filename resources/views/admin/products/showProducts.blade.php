@@ -50,7 +50,7 @@
                             <td ><img src="{{asset('storage/products/'.$product->images->first()->image_name)}}" style="width:50%;height:50%;"></td>
                             <td>
                                 <div class="btn-group">
-                                <a href="{{ route('admin.products.edit', ['product' => $product] ) }}" class="btn btn-sm btn-primary">ویرایش</a>
+                                <a href="{{ route('admin.products.edit', ['product' => $product])}}" class="btn btn-sm btn-primary">ویرایش</a>
 
                                 <form action="{{route('admin.products.destroy', ['product' => $product])}}" method="post">
                                     @method('DELETE')

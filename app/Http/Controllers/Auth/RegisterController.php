@@ -9,6 +9,7 @@ use App\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -31,8 +32,25 @@ class RegisterController extends Controller
      * @var string
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
-    protected $redirectTo = RouteServiceProvider::ROOT;   //after successful registration, redirect to root that is shopping website
+    // protected $redirectTo = RouteServiceProvider::ROOT;   //after successful registration, redirect to root that is shopping website
 
+
+    public function redirectTo()
+    {
+        //get authenticated user object
+        $user = Auth::user();
+
+        //if user has Admin role then redirect to admin panel otherwise redirect to profile page
+        if($user->hasRole('Admin'))
+        {
+            return '/admin';
+        }
+        else
+        {
+            return '/profile';
+        }
+
+    }
     /**
      * Create a new controller instance.
      *

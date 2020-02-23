@@ -165,3 +165,4 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('CheckRol
 Route::resource('users/comment', 'User\CommentsController');
 Route::get('/profile', 'UserController@index')->name('profile');
 
+

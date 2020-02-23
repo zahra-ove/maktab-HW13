@@ -31,4 +31,14 @@ class Product extends Model
     {
         return $this->morphMany('App\Image', 'imageable');
     }
+
+
+    //polymorphic many to many relationship between products table and tags table
+    public function tags()
+    {
+        return $this->morphToMany('App\Tag', 'taggable');
+    }
+
+
+
 }

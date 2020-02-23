@@ -21,7 +21,8 @@ class ProductsController extends Controller
     {
         // $products = Product::with('category', 'pimages')->get();
         $products = Product::with('category', 'images')->get();
-        // return $products;
+        // $products = Product::all();
+
         return view('admin.products.showProducts')->with('products', $products);
     }
 

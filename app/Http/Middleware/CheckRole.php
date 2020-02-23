@@ -41,7 +41,7 @@ class CheckRole
             elseif(Auth::user()->hasRole('User'))
             {
                 $user = Auth::user();
-                return redirect()->route('users.show', ['user'=>$user]);
+                return redirect()->route('profile', ['user'=>$user]);
             }
 
         }

@@ -80,7 +80,7 @@
                     <div class="product-thumb">
                         <div class="image"><a href="{{route('product', ['id' => $newBag->id])}}"><img src="{{asset('storage/products/'.$newBag->images->first()->image_name)}}" alt="{{$newBag->images->first()->image_name}}" title="{{$newBag->images->first()->image_name}}" class="img-responsive" /></a></div>
                         <div class="caption">
-                        <h4><a href="{{route('product', ['id' => $newBag->id])}}">{{$newBag->images->first()->image_name}}</a></h4>
+                        <h4><a href="{{route('product', ['id' => $newBag->id])}}">{{$newBag->product_name}}</a></h4>
                         <p class="price"> <span class="price-new">{{$newBag->product_price}} تومان</span></p>
                         <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
                         </div>
@@ -109,7 +109,7 @@
                         <div class="product-thumb">
                             <div class="image"><a href="{{route('product', ['id' => $newWatch->id])}}"><img src="{{asset('storage/products/'.$newWatch->images->first()->image_name)}}" alt="{{$newWatch->images->first()->image_name}}" title="{{$newWatch->images->first()->image_name}}" class="img-responsive" /></a></div>
                             <div class="caption">
-                            <h4><a href="{{route('product', ['id' => $newWatch->id])}}">{{$newWatch->images->first()->image_name}}</a></h4>
+                            <h4><a href="{{route('product', ['id' => $newWatch->id])}}">{{$newWatch->product_name}}</a></h4>
                             <p class="price"> <span class="price-new">{{$newWatch ->product_price}} تومان</span></p>
                             <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
                             </div>
